@@ -1,0 +1,17 @@
+{
+  "note": "This file has been moved to tests/data/test_constants.py for better organization.",
+  "migration_info": {
+    "old_location": "tests/fixtures/api_responses.json", 
+    "new_location": "tests/data/test_constants.py",
+    "usage": "Import from tests.data import TestExpressions, ExpectedResponses"
+  },
+  "legacy_data": {
+    "sample_responses": {
+      "simple_addition": {
+        "operation": "simplify",
+        "expression": "x + x",
+        "result": "2 x"
+      }
+    }
+  }
+}
