@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    restart: unless-stopped
+    privileged: true
+
+  api-server:
+    image: kennethreitz/httpbin
+    container_name: httpbin_api_jenkins
+    ports:
+      - "8001:80"
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:
