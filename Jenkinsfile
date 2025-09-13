@@ -40,4 +40,4 @@ pipeline {
             echo "Pipeline finished. Status: ${currentBuild.result}"
         }
     }
-
+}
