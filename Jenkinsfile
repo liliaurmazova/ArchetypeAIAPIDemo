@@ -15,25 +15,18 @@ pipeline {
     }
 
 
+
     stages {
-       
+        stage('Checkout') {
             steps {
-              
                 checkout scm
             }
         }
-
-        
         stage('Run API Tests') {
             steps {
-                
                 script {
-                  
                     docker.image('python:3.9-slim').inside('--network=container:httpbin_api') {
-                      
                         sh 'pip install --no-cache-dir -r requirements.txt'
-
-                        
                         sh 'pytest --verbose'
                     }
                 }
@@ -47,4 +40,4 @@ pipeline {
             echo "Pipeline finished. Status: ${currentBuild.result}"
         }
     }
-}
+
